@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Webpage</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+
+        #bgvid {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: 90%;
+            height: 90%;
+            z-index: -100;
+            background-size: cover;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: greenyellow;
+            text-decoration: none;
+        }
+
+        /* Search Bar */
+        .search-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+
+
+        }
+
+        .search-container h1 {
+            color: #ddd;
+            /* Dark white color */
+            margin-right: 30px;
+            margin-top: 10px;
+        }
+
+        .search-container input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+            margin-left: 35%;
+            margin-top: 15%;
+
+        }
+
+        .search-container button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .search-container button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        nav {
+            max-width: var(--max-width);
+            margin: auto;
+            padding: 2rem 1rem;
+            display: flex;
+            align-items: center;
+            /* Align items vertically */
+            justify-content: space-between;
+        }
+
+        .nav__logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #00F000;
+            display: inline-block;
+            /* Ensure vertical alignment */
+            margin-left: 120px;
+        }
+
+        .nav__links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .link a {
+            font-weight: 500;
+            color: var(--text-light);
+            transition: 0.3s;
+        }
+
+        .link a:hover {
+            /*color: var(--primary-color);*/
+            color: greenyellow;
+        }
+
+        /* extra */
+        .card-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 100px;
+            margin-left: 90px;
+            margin-right: 90px;
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+            margin: 20px;
+            width: 300px;
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card p {
+            margin-top: 10px;
+            color:black
+        }
+        .card:hover{
+            background-color:#007bff;
+        }
+
+    
+        footer {
+            width: 100%;
+            height: 300px;
+            background: rgb(249, 249, 255);
+            margin: auto;
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            justify-content: center;
+            flex-direction: column;
+
+        }
+
+        footer h2 {
+            text-align: center;
+            margin-top: 25px;
+            margin: 0;
+            line-height: 30px;
+            font-weight: 400;
+
+        }
+
+        footer p {
+            text-align: center;
+            width: 500px;
+            font-size: 13px;
+        }
+
+        footer .input {
+            box-shadow: 0px 3px 20px -1px grey;
+            border-radius: 20px;
+        }
+
+        footer .input input {
+            padding: 12p 15px;
+            border: none;
+            outline: none;
+            font-size: 12px;
+            border-radius: 20px 0px px 20px;
+
+        }
+
+        footer .input button {
+            padding: 10px 20px;
+            border: none;
+            outline: none;
+            font-size: 12px;
+            background: #000;
+            color: white;
+            cursor: pointer;
+            transition: .3s linear;
+            border-radius: 5px;
+        }
+
+        footer .input button:hover {
+            background: rgb(191, 219, 121);
+        }
+
+        footer ul {
+            list-style: none;
+            display: flex;
+
+            margin-top: 30px;
+
+        }
+
+        footer ul li {
+            text-align: center;
+            margin-right: 30px;
+            font-weight: bold;
+        }
+
+        footer ul li h6 {
+            font-size: 12px;
+            font-weight: 600;
+            max-width: 120px;
+            margin: 0;
+            line-height: 18px;
+            border-top: 1px solid #000;
+            padding-top: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <video autoplay loop muted id="bgvid">
+        <source src="pics/video.mp4" type="video/mp4">
+    </video>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav__logo">Mr.travel</div>
+        <ul class="nav__links">
+            <li class="link"><a href="/">Home</a></li>
+            <li class="link"><a href="/about">About Us</a></li>
+            <li class="link"><a href="/login">Login</a></li>
+            <li class="link"><a href="/contact">Contact Us</a></li>
+            <li class="link"><a href="/search"><i class="fas fa-search"></i> Search</a></li>
+        </ul>
+    </nav>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <form action="/search" method="post">
+            <marquee scrollamount="15">
+                <h1>Search Your Next Destination...</h1>
+            </marquee>
+            <input type="text" name="location" placeholder="Enter location" required>
+            <button type="submit"><i class="bi bi-search"></i> Submit</button>
+        </form>
+    </div>
+
+    {{!-- extra --}}
+    <div class="card-container">
+        <!-- Card 1 -->
+        <div class="card">
+               <h3>Punjab</h3>
+            <img src="pics/punjab.jpg" alt="Image 1">
+            <p>Punjab:The Golden Temple, or Harmandir Sahib, located in Amritsar, Punjab, India, is the most sacred
+                shrine of Sikhism. It symbolizes human equality and brotherhood</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+            <h3>Uttrakhand</h3>
+            <img src="pics/uttrakhand.jpg" alt="Image 2">
+            <p>Uttarakhand:also known as ‘Devbhumi’ or ‘Land of Gods’, is a northern Indian state nestled between the
+                Tibetan Plateau and the Indo-Gangetic Plains</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+               <h3>Rajasthan</h3>
+            <img src="pics/rajasthan.jpg" alt="Image 3">
+            <p>Rajasthan:Kumbhalgarh, a UNESCO World Heritage Site, is a majestic fortress located in Rajasthan, India1.
+                Known as the “Great Wall of India”, it boasts the world’s second-longest continuous wall</p>
+        </div>
+    </div>
+
+    <footer>
+        <h2>
+            Subscribe & <br> get special discount
+        </h2><br>
+        <p>Travel: the only thing you buy that makes you richer. Explore, dream, discover!</p>
+        <br>
+        <div class="input">
+            <input type="text" placeholder="Enter your Email Address">
+            <button> Subscribe</button>
+        </div>
+        <ul>
+            <li> 7865 <br>
+                <h6>Year Serving The Travel Industry</h6>
+            </li>
+            <li> 4567 <br>
+                <h6> Global <br> Paternship</h6>
+            </li>
+            <li> 7844 <br>
+                <h6> Industry Award Since 2022 </h6>
+            </li>
+            <li> 6000 <br>
+                <h6> Subscribe</h6>
+            </li>
+        </ul>
+    </footer>
+
+    <!-- Bootstrap Icons CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/brands.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/solid.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/fontawesome.js"></script>
+</body>
+
+</html>

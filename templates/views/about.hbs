@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: dimgray;
+           
+
+        }
+        #about{
+            background: url(pics/about2.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 100%;
+        }
+
+        .about-1 {
+            margin: 30px;
+            padding: 5px;
+        }
+
+        .about-1 h1 {
+            text-align: center;
+            color: black;
+            font-weight: bold;
+
+        }
+
+        .about-1 p {
+            text-align: center;
+            padding: 3px;
+            color: #fff;
+            font-size: 30px;
+        }
+
+        .about-item {
+            margin-bottom: 20px;
+            margin-top: 20px;
+            background-color: white;
+            padding: 80px, 30px;
+            box-shadow: 0 0 9px rgba(0, 0, 0, .6);
+        }
+
+        .about-item i {
+            font-size: 43px;
+            margin: 0;
+        }
+
+        .about-item h3 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .about-item hr {
+            width: 46px;
+            height: 3px;
+            background-color: blue;
+            margin: 0 auto;
+            border: none;
+
+        }
+
+        .about-item p {
+            margin-top: 20px;
+        }
+
+        .about-item:hover {
+            background-color: #5fbff9;
+        }
+
+        .about-item:hover p {
+            color: #fff;
+        }
+
+        .about-item:hover hr {
+            color: #fff;
+        }
+
+        .about-item:hover i {
+            transform: translateY(-20px);
+        }
+
+        .about-item:hover i,
+        .about-item:hover h3,
+        .about-item:hover hr {
+            transition: all 400ms ease-in-out;
+        }
+
+        footer {
+            background: #212226;
+            padding: 20px;
+        }
+
+        /*footer */
+
+        footer {
+            width: 100%;
+            height: 300px;
+            background: rgb(249, 249, 255);
+            margin: auto;
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            justify-content: center;
+            flex-direction: column;
+
+        }
+
+        footer h2 {
+            text-align: center;
+            margin-top: 25px;
+            margin: 0;
+            line-height: 30px;
+            font-weight: 400;
+
+        }
+
+        footer p {
+            text-align: center;
+            width: 500px;
+            font-size: 13px;
+        }
+
+        footer .input {
+            box-shadow: 0px 3px 20px -1px grey;
+            border-radius: 20px;
+        }
+
+        footer .input input {
+            padding: 12p 15px;
+            border: none;
+            outline: none;
+            font-size: 12px;
+            border-radius: 20px 0px px 20px;
+
+        }
+
+        footer .input button {
+            padding: 10px 20px;
+            border: none;
+            outline: none;
+            font-size: 12px;
+            background: #000;
+            color: white;
+            cursor: pointer;
+            transition: .3s linear;
+            border-radius: 5px;
+        }
+
+        footer .input button:hover {
+            background: rgb(191, 219, 121);
+        }
+
+        footer ul {
+            list-style: none;
+            display: flex;
+
+            margin-top: 30px;
+
+        }
+
+        footer ul li {
+            text-align: center;
+            margin-right: 30px;
+            font-weight: bold;
+        }
+
+        footer ul li h6 {
+            font-size: 12px;
+            font-weight: 600;
+            max-width: 120px;
+            margin: 0;
+            line-height: 18px;
+            border-top: 1px solid #000;
+            padding-top: 3px;
+        }
+        /* nav */
+        nav {
+      max-width: var(--max-width);
+      margin: auto;
+      padding: 2rem 1rem;
+      display: flex;
+      align-items: center; /* Align items vertically */
+      justify-content: space-between;
+      background-color: white;
+    }
+    .nav__logo {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #00F000;
+      display: inline-block; /* Ensure vertical alignment */
+    }
+
+    .nav__links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .link a {
+      font-weight: 500;
+      color: var(--text-light);
+      transition: 0.3s;
+      text-decoration: none;
+    }
+
+    .link a:hover {
+      color:greenyellow ;
+      
+       
+    }  
+
+    </style>
+
+</head>
+
+<body>
+    <nav>
+        <div class="nav__logo">Mr.travel</div>
+        <ul class="nav__links">
+          <li class="link"><a href="/">Home</a></li>
+          <li class="link"><a href="#">About Us</a></li>
+          <li class="link"><a href="/login">Login</a></li>
+          <li class="link"><a href="/contact">Contact Us</a></li>
+           <li class="link"><a href="/search"><i class="bi bi-search"></i> Search</a></li>
+        </ul>
+      </nav>
+    <section id="about">
+        <div class="about-1">
+            <h1> How We Make Difference</h1>
+            <p> Embark on a journey of discovery, one destination at a time.</p>
+
+        </div>
+        <div id="about-2">
+            <div class="content-box-lg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="about-item text-center">
+                                <i class="bi bi-journal-bookmark-fill"></i>
+                                <h3>Mission</h3>
+                                <hr>
+                                <p> To inspire and facilitate travel by providing a one-stop platform for discovering
+                                    destinations, planning journeys, and creating unforgettable experiences across the
+                                    globe.</p>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <div class="about-item text-center">
+                                <i class="bi bi-globe-asia-australia"></i>
+                                <h3>Vision</h3>
+                                <hr>
+                                <p>To become the world’s leading travel platform, transforming the way people explore,
+                                    experience, and enjoy our beautiful planet, one journey at a time.</p>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <div class="about-item text-center">
+                                <i class="bi bi-pencil-fill"></i>
+                                <h3>Achievement</h3>
+                                <hr>
+                                <p> Successfully connected thousands of travelers to their dream destinations, providing
+                                    comprehensive travel planning tools and curated experiences.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <footer>
+        <h2>
+            Subscribe & <br> get special discount
+        </h2><br>
+        <p> Travel: the only thing you buy that makes you richer. Explore, dream, discover!</p>
+        <br>
+        <div class="input">
+            <input type="text" placeholder="Enter your Email Address">
+            <button> Subscribe</button>
+        </div>
+        <ul>
+            <li> 7865 <br>
+                <h6>Year Serving The Travel Industry</h6>
+            </li>
+            <li> 4567 <br>
+                <h6> Global <br> Paternship</h6>
+            </li>
+            <li> 7844 <br>
+                <h6> Industry Award Since 2022 </h6>
+            </li>
+            <li> 6000 <br>
+                <h6> Subscribe</h6>
+            </li>
+        </ul>
+    </footer> 
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
