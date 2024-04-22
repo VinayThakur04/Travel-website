@@ -1,8 +1,8 @@
 const express=require('express');
 const path=require("path");
 const hbs=require("hbs");
-require("./db/conn");
-const Register=require("./models/registers");
+// require("./db/conn");
+// const Register=require("./models/registers");
 const {json}=require("express");
 const app=express();
 const port=process.env.PORT || 3008 ;
@@ -38,51 +38,51 @@ app.get("/register",(req,res)=>{
   });
   
 
-app.post("/register",async(req,res)=>{
-   try{
-    const password= req.body.password;
-    const cpassword=req.body.confirmpassword;
-    if(password=== cpassword){
-        const registerEmployee=new Register({
+// app.post("/register",async(req,res)=>{
+//    try{
+//     const password= req.body.password;
+//     const cpassword=req.body.confirmpassword;
+//     if(password=== cpassword){
+//         const registerEmployee=new Register({
             
-            email:req.body.email,
-            password:req.body.password,
-            confirmpassword:req.body.confirmpassword,
-            mobile:req.body.mobile
-        })
-      const register=await  registerEmployee.save();
-      res.status(201).render("index", { message: "Success: You are Registered Successfully" });
+//             email:req.body.email,
+//             password:req.body.password,
+//             confirmpassword:req.body.confirmpassword,
+//             mobile:req.body.mobile
+//         })
+//       const register=await  registerEmployee.save();
+//       res.status(201).render("index", { message: "Success: You are Registered Successfully" });
       
         
-    }
-    else{
-        res.send("password mismatched");
-    }
+//     }
+//     else{
+//         res.send("password mismatched");
+//     }
 
-   }catch(error){
-    res.status(400).send(error);
-   }
- })
+//    }catch(error){
+//     res.status(400).send(error);
+//    }
+//  })
 
- app.post("/login",async(req,res)=>{
-    try{
-        const email=req.body.email;
-        const password=req.body.password;
-        console.log(`${email} and password is ${password}`);
-        const useremail =await Register.findOne({email:email});
-        if(useremail.password===password){
+//  app.post("/login",async(req,res)=>{
+//     try{
+//         const email=req.body.email;
+//         const password=req.body.password;
+//         console.log(`${email} and password is ${password}`);
+//         const useremail =await Register.findOne({email:email});
+//         if(useremail.password===password){
             
-            res.status(201).render("index", { message: "Success: You are logged in!" });
+//             res.status(201).render("index", { message: "Success: You are logged in!" });
 
-        }
-        else{
-            res.send("Error:password are not matching");
-        }
+//         }
+//         else{
+//             res.send("Error:password are not matching");
+//         }
 
-    }catch(error){
-        res.status(400).send("Error:Invalid email")
-    }
-})
+//     }catch(error){
+//         res.status(400).send("Error:Invalid email")
+//     }
+// })
 
 app.get('/search',(req,res)=>{
     res.render("search");
